@@ -24,15 +24,15 @@ def playRock(result): #If user chooses rock
 	ai_choice = random.randint(-1,1)
 	countdown()
 	if ai_choice ==1:
-		print "\nI choose Scissors"
+		print "\nI choose Scissors","\nYou won this round"
 		result+=1
 		return result
 	elif ai_choice ==0:
-		print "\nI choose Paper"
+		print "\nI choose Paper","\nYou lost this round"
 		result-=1
 		return result
 	elif ai_choice== -1:
-		print "\nI choose Rock"
+		print "\nI choose Rock","\nDraw"
 		return result
 
 def playPaper(result): #if user chooses paper
@@ -40,14 +40,14 @@ def playPaper(result): #if user chooses paper
 	ai_choice = random.randint(-1,1)
 	countdown()
 	if ai_choice ==1:
-		print "\nI choose Scissors"
+		print "\nI choose Scissors","\nYou lost this round"
 		result-=1
 		return result
 	elif ai_choice ==0:
-		print "\nI choose Paper"
+		print "\nI choose Paper","\nDraw"
 		return result
 	elif ai_choice== -1:
-		print "\nI choose Rock"
+		print "\nI choose Rock","\nYou won this round"
 		result+=1
 		return result
 
@@ -56,14 +56,14 @@ def playScissors(result): #if user chooses scissors
 	ai_choice = random.randint(-1,1)
 	countdown()
 	if ai_choice ==1:
-		print "\nI choose Scissors"
+		print "\nI choose Scissors","\nDraw"
 		return result
 	elif ai_choice ==0:
-		print "\nI choose Paper"
+		print "\nI choose Paper","\nYou won this round"
 		result+=1
 		return result
 	elif ai_choice== -1:
-		print "\nI choose Rock"
+		print "\nI choose Rock","\nYou lost this round"
 		result-=1
 		return result
 		
@@ -78,33 +78,37 @@ while rounds % 2 ==0:
 total = 0
 
 """Start the game"""
-
-while rounds > 0:
-	
+start=0
+while start < rounds:
+	if total == (rounds/2)+1:
+		break
+	elif total == ((rounds/2)+1)*-1:
+		break
+	else:	
 		print "\nPlease enter your choice of:"
 		for i in options:
-			print i
+			print i,"\t"
 		choice = raw_input("\nPlease type in the choice correctly: ")
 		
 		if choice == "Rock" or choice[0] == "R" or choice[0] == "r":
 			total=playRock(total)
 			print total
-			rounds-=1
+			start+=1
 		elif choice == "Paper" or choice[0] == "P" or choice[0] == "p":
 			total=playPaper(total)
 			print total
-			rounds-=1
+			start+=1
 		elif choice == "Scissors" or choice[0] == "S" or choice[0] == "s":
 			total=playScissors(total)
 			print total
-			rounds-=1
+			start+=1
 		else:
 			print"\nPlease enter from the list of given choice"
 
 """Result"""
 
 if total > 0:
-	print "\n You won!!"
+	print "\nYou won!!"
 elif total < 0:
 	print "\nDamn, you got bested. Try again next time"
 else:
