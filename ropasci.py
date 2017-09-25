@@ -1,6 +1,8 @@
 #! /usr/bin/python
 import random, sys ,time, os
+
 """Implement simple rock paper scissors"""
+
 os.system("clear")
 options = ["Rock","Paper","Scissors"]
 
@@ -66,6 +68,8 @@ def playScissors(result): #if user chooses scissors
 		print "\nI choose Rock","\nYou lost this round"
 		result-=1
 		return result
+
+#Program Starts Here
 		
 print "\t"*7, "Welcome to Rock Paper Scissors"
 rounds=int(get_rounds())
@@ -78,11 +82,12 @@ while rounds % 2 ==0:
 total = 0
 
 """Start the game"""
+
 start=0
 while start < rounds:
 	print "\nPlease enter your choice of:"
 	for i in options:
-		print i,"\t"
+		print i
 	choice = raw_input("\nPlease type in the choice correctly: ")
 	
 	if choice == "Rock" or choice[0] == "R" or choice[0] == "r":
