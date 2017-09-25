@@ -80,30 +80,31 @@ total = 0
 """Start the game"""
 start=0
 while start < rounds:
-	if total == (rounds/2)+1:
+	print "\nPlease enter your choice of:"
+	for i in options:
+		print i,"\t"
+	choice = raw_input("\nPlease type in the choice correctly: ")
+	
+	if choice == "Rock" or choice[0] == "R" or choice[0] == "r":
+		total=playRock(total)
+		print total
+		start+=1
+	elif choice == "Paper" or choice[0] == "P" or choice[0] == "p":
+		total=playPaper(total)
+		print total
+		start+=1
+	elif choice == "Scissors" or choice[0] == "S" or choice[0] == "s":
+		total=playScissors(total)
+		print total
+		start+=1
+	else:
+		print"\nPlease enter from the list of given choice"
+
+
+	if total > rounds-start: #If the total points is greater than the number of rounds left
 		break
-	elif total == ((rounds/2)+1)*-1:
-		break
-	else:	
-		print "\nPlease enter your choice of:"
-		for i in options:
-			print i,"\t"
-		choice = raw_input("\nPlease type in the choice correctly: ")
-		
-		if choice == "Rock" or choice[0] == "R" or choice[0] == "r":
-			total=playRock(total)
-			print total
-			start+=1
-		elif choice == "Paper" or choice[0] == "P" or choice[0] == "p":
-			total=playPaper(total)
-			print total
-			start+=1
-		elif choice == "Scissors" or choice[0] == "S" or choice[0] == "s":
-			total=playScissors(total)
-			print total
-			start+=1
-		else:
-			print"\nPlease enter from the list of given choice"
+	else:
+		continue
 
 """Result"""
 
