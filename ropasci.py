@@ -106,16 +106,13 @@ while start < rounds:
 		print"\nPlease enter from the list of given choice"
 
 
-	if total > rounds-start: #If the total points is greater than the number of rounds left
-		break
-	else:
-		continue
+	break if total > rounds-start else continue #If the total points is greater than the number of rounds left
 
 """Result"""
 
 if total > 0:
-	print "\nYou won!!"
+	print "\nYay, You won!!"
 elif total < 0:
 	print "\nDamn, you got bested. Try again next time"
 else:
-	print "\nDraw! You're as good as a machine!"
+	print "\nDraw! You're as good as a me!"
